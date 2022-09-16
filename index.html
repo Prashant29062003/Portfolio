@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Prashant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+:root
+{
+    --black1: #333;
+    --black2: #333;
+    --white1: #fff;
+    --white2: #fff;
+}
+.dark
+{
+    --black1: #fff;
+    --black2: #444;
+    --white1: #333;
+    --white2: #444;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow-x: hidden;
+    background: var(--white1);
+}
+.container{
+    position: relative;
+    width: 100vh;
+}
+.navigation
+{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    background: var(--white2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.container .navigation .home_active
+{
+    color: crimson;
+    opacity: 1;
+    font-weight: 700;
+}
+.container .navigation .home_underline::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    background: var(--black1);
+    width: 10px;
+    height: ;
+}
+.dark .navigation
+{
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+.navigation.active{
+    width: 0;
+}
+.navigation ul{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    white-space: normal;
+    display: flex;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black1);
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+.navigation ul li a:hover{
+    opacity: 1;
+}
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    background: var(--white1);
+    min-height: 100vh;
+    /* transition: width 0.7s ease-in-out; */
+}
+.main .topbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: var(--white2);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    height: 60px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 10px 20px 30px rgba(0,0,0,0.05);
+}
+.dark .main .topbar
+{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.main .topbar span
+{
+    color: crimson;
+}
+.main .topbar .logo{
+    color: var(--black1);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.main .topbar .toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--black1);
+}
+.container .main_content
+{
+    position: absolute;
+    left: 300px;
+    width: 80vw;
+    top: 60px;
+    padding: 2em 2em;
+    color: var(--white1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: -1;
+    transition: width 0.3s, left 0.5s;
+}
+.container .main_content.active{
+    width: 100vw;
+    left: 0;
+    margin: auto;
+}
+section
+{
+    position: relative;
+    min-height: 100vh;
+}
+.banner
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+
+}
+.banner .content
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.banner .imgBx
+{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.banner .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content h3
+{
+    position: relative;
+    font-size: 1.4em;
+    color: var(--black1);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.dark .banner .content h3
+{
+    color: crimson;
+}
+.banner .content p
+{
+    color: #777;
+}
+.dark .banner .content p{
+    color: var(--black1);
+    opacity: 0.8;
+}
+.banner .content .btn
+{
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 6px 0;
+    background: var(--black2);
+    color: var(--white2);
+    text-decoration: none;
+    border-radius: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.dark .banner .content .btn
+{
+    color: #333;
+    background: #fff;
+    font-weight: 900;
+}
+.dark .banner .content .btn:hover
+{
+    background: #2196f3;
+    color: var(--black1);
+}
+.banner .content .socialMedia
+{
+    position: relative;
+    top: 20px;
+    display: flex;
+}
+.banner .content .socialMedia li
+{
+    list-style: none;
+}
+.banner .content .socialMedia li a
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,.05);
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black1);
+    font-size: 1.5em;
+}
+.dark .banner .content .socialMedia li a:hover
+{
+    background: #2196f3;
+    color: #fff;
+    /* box-shadow: inset 0 -2px 1px #fff; */
+}
+
+.banner .content .socialMedia li a:hover
+{
+    background: var(--black1);
+    color: var(--white1);
+}
+.adjust
+{
+    position: relative;
+    min-height: 100vh;
+    padding: 0 40px;
+    background: var(--white2);
+    display: inline-block;
+}
+.adjust .title
+{
+    text-align: center;
+    
+}
+.adjust .title h2
+{
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--black1)
+}
+.adjust .title h2:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 2px;
+    background: var(--black1);
+}
+.adjust .content
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adjust .content .textBox
+{
+    width: 49%;
+    min-width: 67%;
+    /* padding: 0 0 0 10px; */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+}
+p
+{
+    color: var(--black1)
+
+}
+.adjust .content .imgBx img{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+.services .content .serviceBox
+{
+    display: grid;
+    grid-template-columns: auto;
+    
+}
+.services .content .serviceBox .box_size
+{
+    border: 5px solid rgba(0,0,0,.05);
+    padding: 50px 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--white2);
+    flex-direction: column;
+}
+.dark .services .content .serviceBox .box_size
+{
+    border: 5px solid rgba(0,0,0,.5);
+    filter: brightness(1.2);
+}
+
+.dark .services .content .serviceBox .box_size img
+{
+    filter: invert(1);
+}
+.services .content .serviceBox .box_size p
+{
+    text-align: center;
+    color: var(--black1);
+    opacity: .7;
+}
+.services .content .serviceBox .box_size h2
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--black1);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.project .content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    margin: 40px 0;
+}
+.project .content .workBx
+{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+.project .content .workBx .imgBx{
+    position: relative;
+    width: 40rem;
+    height: 30rem;
+    transform: translateX(-20%);
+    transform: translateY(0);
+    transition: 1s ease;
+    overflow: visible;
+    visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.project .content .workBx .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.project .content .workBx:hover .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+.project .content .workBx .textBx
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: 0.5s ease-in-out;
+    background: var(--black1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.dark .project .content .workBx .textBx
+{
+    background: #777;
+}
+.project .content .workBx:hover .textBx
+{
+    transform: translateY(0);
+}
+.project .content .workBx .textBx h2
+{
+    color: var(--white1);
+    font-size: 1.1em;
+    
+}
+.Testimonials .content
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    margin: 40px 0;
+}
+.Testimonials .content .TestimonialsBox
+{
+    background: var(--white2);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    padding: 20px;
+    cursor: pointer;
+}
+.dark .Testimonials .content .TestimonialsBox:hover
+{
+    background: #2196f3;
+}
+.Testimonials .content .TestimonialsBox .imgBx
+{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 0 40px 0;
+}
+.Testimonials .content .TestimonialsBox .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Testimonials .content .TestimonialsBox p
+{
+    font-style: italic;
+}
+.Testimonials .content .TestimonialsBox h4
+{
+    text-align: right;
+    margin-top: 20px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    font-size: 1em;
+    color: var(--black1);
+    line-height: 1.2em;
+    font-weight: 600;
+    border-right: 4px solid var(--black1);
+    padding-right: 10px;
+}
+.Testimonials .content .TestimonialsBox h4 span
+{
+    color: #aaa;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: initial;
+}
+.dark .Testimonials .content .TestimonialsBox:hover h4 span
+{
+    color: #fff;
+    opacity: 0.9;
+}
+.contact
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 200px;
+    padding: 25px;
+}
+.contact .contactForm
+{
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+.contact .contactForm .row
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    margin: 40px 0;
+}
+.contact .contactForm .row2
+{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact .contactForm .row input,
+.contact .contactForm .row2 textarea
+{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: var(--black1);
+    background:var(--white1) ;
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+.contact .contactForm .row2 textarea
+{
+    resize: none;
+    height: 200px;
+}
+.contact .contactForm .row2 input[type="submit"]
+{
+    background: var(--black1);
+    color: var(--white2);
+    padding: 10px 30px;
+    border-radius: 1em;
+    border: none;
+    outline: none;
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1em;
+    letter-spacing: 2px;
+    cursor: pointer;
+    max-width: 150px;
+    text-transform: uppercase;
+}
+.contact .contactForm .row2 input[type="submit"]:hover
+{
+    color: #fff;
+    background: #2196f3;
+}
+.copyright
+{
+    position: relative;
+    bottom: 0;
+    padding: 40px 0 0 0;
+    text-align: center;
+}
+.copyright p
+{
+    color: var(--black1);
+}
+.contact .contact_social .socialMedia
+{
+    position: relative;
+    top: 20px;
+    right: 0;
+    display: flex;
+}
+.contact .contact_social .socialMedia li
+{
+    list-style: none;
+    
+}
+.contact .contact_social .socialMedia li a
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,.05);
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--black1);
+    font-size: 1.5em;
+}
+.contact .contact_social .socialMedia li a:hover
+{
+    background: var(--black1);
+    color: var(--white2);
+}
+
+/* Dark and Light Switch */
+.themeSwitch
+{
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: var(--black1);
+    color: var(--white1);
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.themeSwitch::before
+{
+    content: '\f186';
+    font-family: fontAwesome;
+    font-size: 1.5em;
+}
+.dark .themeSwitch::before
+{
+    content: '\f185';
+    font-family: fontAwesome;
+}
+.themeSwitch::after
+{
+    content: 'Switch to Dark Mode ';
+    position: absolute;
+    left: 40px;
+    font-size: 1.1em;
+    color: var(--black1);
+    white-space: nowrap;
+    font-weight: 300;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+.dark .themeSwitch::after
+{
+    content: 'Switch to Light Mode ';
+}
+
+/* Responsive */
+@media (max-width: 992px)
+{
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        left: 0;
+        width: 100%;
+    }
+    .container .main_content{
+        width: 100vw;
+        left: 0;
+    }
+    .container .main_content.active{
+        left: 100vw;
+    }
+    .main .topbar{
+        width: 100vw;
+        left: 0;
+        padding: 0 20px;
+    }
+    .navigation ul{
+        padding: 20px 20px;
+    }
+    .banner .imgBx{
+        width: 250px;
+        height: 250px;
+    }
+    .banner h3,
+    .banner p{
+        text-align: center;
+    }
+    .adjust{
+        padding: 0 20px;
+        padding-top: 80px;
+    }
+    .about .content{
+        flex-direction: column;
+    }
+    .about .content .textBox{
+        width: 100%;
+        min-height: 100%;
+    }
+    .about .content .imgBx{
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .about .content .imgBx img{
+        width: 700px;
+        height: 900px;
+    }
+
+}
+@media (max-width: 767px)
+{
+    .project .content{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .project .content .workBx .imgBx{
+        transform: translate(50%);
+    }
+    .Testimonials .content{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .contact .contactForm .row{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+    
+}
+@media (max-width: 740px)
+{
+    .banner .imgBx{
+        width: 200px;
+        height: 200px;
+    }
+    .about .content .textBox{
+        width: 80%;
+        min-height: 80%;
+    }
+    .about .content .imgBx img{
+        width: 90vw;
+        height: 70vh;
+    }
+}
+@media (max-width: 640px)
+{
+    .about .content .imgBx img{
+        width: 80vw;
+        height: 60vh;
+    }
+}
+
+
+
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li class="home_underline"><a href="#banner" onclick="toggleMenu();"  class="home_active">Home</a></li>
+                <li><a href="#about" onclick="toggleMenu();">About</a></li>
+                <li><a href="#services" onclick="toggleMenu();">Services</a></li>
+                <li><a href="#project" onclick="toggleMenu();">Projects</a></li>
+                <li><a href="#Testimonials" onclick="toggleMenu();">Testimonials</a></li>
+                <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+            </ul>
+            <div class="themeSwitch"></div>
+            <div class="main">
+                <div class="topbar">
+                    <a href="#" class="logo">Port<span>folio.</span></a>
+                    <div class="toggle">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <!-- Banner -->
+            <section class="banner" id="banner">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="img/web_developer.jpg">
+                    </div>
+                    <h3>Prashant Kumar</h3>
+                    <p>I'm a Creative Front End web Devloper </p>
+                    <a href="img/Prashant Kumar 01.jpg" class="btn">Preview My CV</a>
+                    <ul class="socialMedia">
+                        <li><a href="#"><span><ion-icon name="logo-instagram"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-facebook"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-github"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-twitter"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-linkedin"></ion-icon></span></a></li>
+                    </ul>
+                </div>
+            </section><br><br>
+
+            <!-- About -->
+            <section class="about adjust" id="about">
+                <div class="title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="content">
+                    <div class="textBox">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, cumque corporis cupiditate ipsam officiis dolor omnis commodi sapiente maiores! Voluptates quam distinctio dignissimos inventore magni enim quisquam ex eum! Veniam nulla, ipsam placeat similique optio vero dolor laborum officia soluta voluptates, quo magnam ea, <br><br> explicabo consequatur optio non rerum. Temporibus sapiente nam pariatur accusamus nulla consequuntur, quae a eveniet saepe assumenda dolor neque similique sint magnam cumque aperiam eaque enim, delectus laudantium distinctio odio! Animi sint rerum magnam ipsam? Tempore inventore eius obcaecati dolorum ratione incidunt repudiandae provident iure aut dolor expedita commodi facere soluta praesentium soluta.</p>
+                    </div>
+                    <div class="imgBx">
+                        <img src="img/profile pic3.jpg" width="400" height="500">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services -->
+            <section class="services adjust" id="services">
+                <div class="title">
+                    <h2>Services</h2>
+                </div>
+                <div class="content">
+                    <div class="serviceBox">
+                        <div class="box_size">
+                            <img src="img/web_design.png" width="230" height="200" alt="">
+                            <h2>Web Design</h2><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat ex qui veritatis incidunt, quis optio molestias doloribus quas libero, excepturi natus, maiores ducimus iure aspernatur. Neque asperiores explicabo excepturi.</p>
+                        </div><br>
+                        <div class="box_size">
+                            <img src="img/content_writing.png" width="150" height="130" alt="">
+                            <h2>Content Wrting</h2><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat ex qui veritatis incidunt, quis optio molestias doloribus quas libero, excepturi natus, maiores ducimus iure aspernatur. Neque asperiores explicabo excepturi.</p>
+                        </div><br><br>
+                        <div class="box_size">
+                            <img src="img/web_development.png" width="200" height="150" alt="">
+                            <h2>Web Development</h2><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat ex qui veritatis incidunt, quis optio molestias doloribus quas libero, excepturi natus, maiores ducimus iure aspernatur. Neque asperiores explicabo excepturi.</p>
+                        </div><br><br>
+                        <div class="box_size">
+                            <img src="img/video_editing.png" width="200" height="150" alt="">
+                            <h2>Video Editing</h2><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam fugiat ex qui veritatis incidunt, quis optio molestias doloribus quas libero, excepturi natus, maiores ducimus iure aspernatur. Neque asperiores explicabo excepturi.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Projects -->
+            <section class="project adjust" id="project">
+                <div class="title">
+                    <h2>Recent Work</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corporis adipisci assumenda est quia, nisi molestiae ipsam labore distinctio nesciunt suscipit impedit repellat quis magnam numquam itaque architecto voluptatum. Obcaecati.</p>
+                <div class="content">
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 01.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 01</h3>
+                        </div>
+                    </div>
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 02.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 02</h3>
+                        </div>
+                    </div>
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 03.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 03</h3>
+                        </div>
+                    </div>
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 04.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 04</h3>
+                        </div>
+                    </div>
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 05.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 05</h3>
+                        </div>
+                    </div>
+                    <div class="workBx">
+                        <div class="imgBx">
+                            <img src="img/project 06.jpg" alt="">
+                        </div>
+                        <div class="textBx">
+                            <h3>Project 06</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Testimonials -->
+            <section class="Testimonials adjust" id="Testimonials">
+                <div class="title">
+                    <h2>Testimonials</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corporis adipisci assumenda est quia, nisi molestiae ipsam labore distinctio nesciunt suscipit impedit repellat quis magnam numquam itaque architecto voluptatum. Obcaecati.</p>
+                <div class="content">
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 01.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 02.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 01.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 01.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 01.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                    <div class="TestimonialsBox">
+                        <div class="imgBx">
+                            <img src="img/test 01.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas consequatur dignissimos ab ut reprehenderit soluta repellendus harum! Adipisci, veritatis quaerat? Porro, quasi aspernatur!</p>
+                        <h4>Some Famous<br> <span>Website Design</span></h4>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="contact adjust" id="contact">
+                <div class="title">
+                    <h2>Let's Say Hi</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corporis adipisci assumenda est quia, nisi molestiae ipsam labore distinctio nesciunt suscipit impedit repellat quis magnam numquam itaque architecto voluptatum. Obcaecati.</p>
+                </div>
+                <div class="contactForm">
+                    <div class="row">
+                        <input type="text" name="" placeholder="First Name">
+                        <input type="text" name="" placeholder="Last Name">
+                    </div>
+                    <div class="row">
+                        <input type="text" name="" placeholder="Eamil Address">
+                        <input type="text" name="" placeholder="Mobile Number">
+                    </div>
+                    <div class="row2">
+                        <textarea placeholder="Message"></textarea>
+                    </div>  
+                    <div class="row2">
+                        <input type="submit" value="send">
+                    </div>
+                </div>
+                <div class="contact_social">
+                    <ul class="socialMedia">
+                        <li><a href="#"><span><ion-icon name="logo-instagram"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-facebook"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-github"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-twitter"></ion-icon></span></a></li>
+                        <li><a href="#"><span><ion-icon name="logo-linkedin"></ion-icon></span></a></li>
+                    </ul>
+                </div>
+            </section>
+            
+
+            <!-- Copyright Text -->
+            <div class="copyright">
+                <p>Copyright &copy; 2022 Prashant Kumar.<br> All Rights Reserved</p>
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        let toggle = document.querySelector('.toggle');
+        let topbar = document.querySelector('.topbar');
+        let navigation= document.querySelector('.navigation');
+        let main_content= document.querySelector('.main_content');
+        let themeSwitch = document.querySelector('.themeSwitch');
+        let body = document.querySelector('body');
+        toggle.onclick = function(){
+            toggle.classList.toggle('active');
+            topbar.classList.toggle('active');
+            navigation.classList.toggle('active');
+            main_content.classList.toggle('active');
+        }
+
+        // theme switch toogle
+        themeSwitch.onclick = function(){
+            body.classList.toggle('dark');
+        }
+
+        // Fix Menu Issue 
+        function toggleMenu(){
+            let navigation = document.querySelector('.navigation');
+            let main_content = document.querySelector('.main_content');
+            navigation.classList.remove('active');
+            main_content.classList.remove('active');
+
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
